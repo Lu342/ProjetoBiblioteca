@@ -68,11 +68,11 @@ public class Livro implements Serializable {
 		return uuid;
 	}
 
-	public Area getGenero() {
+	public Area getArea() {
 		return Area.fromCodigo(area);
 	}
 
-	public void setGenero(Area area) {
+	public void setArea(Area area) {
 		this.area = area.getCodigo();
 	}
 
