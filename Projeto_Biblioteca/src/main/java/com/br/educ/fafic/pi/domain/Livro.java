@@ -40,8 +40,6 @@ public class Livro implements Serializable {
 	@Column(unique = true)
 	private String isbn;
 
-//	tipo enum para área do livro (Exatas, humanas)
-
 	private Integer area;
 
 	public static Livro create(Livro_DTO livrodto) {

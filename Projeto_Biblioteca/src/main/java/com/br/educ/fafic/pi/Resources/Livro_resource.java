@@ -2,6 +2,8 @@ package com.br.educ.fafic.pi.Resources;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,17 +26,18 @@ public class Livro_resource {
 	public ResponseEntity save(@RequestBody Livro_DTO livro) {
 		return ResponseEntity.ok().body(livro_service.saveLivro(Livro.create(livro)));
 	}
-	
-	
+
+	@GetMapping("/get/{isbn}")
+	public ResponseEntity getLivroByIsbn(@PathVariable String isbn) {
+		return ResponseEntity.ok().body(livro_service.getLivroByIsbn(isbn));
+	}
 
 	/*
-	 * @GetMapping("/all") 
-	 * public List<Livro> getAll() { 
-	 * return (List<Livro>)
+	 * @GetMapping("/all") public List<Livro> getAll() { return (List<Livro>)
 	 * ResponseEntity.ok().body(livro_service.getAll());
 	 * 
-	 * }  
+	 * }
 	 */
-	
+
 //	recurso para cada entidade
 }

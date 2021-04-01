@@ -23,10 +23,13 @@ public class Livro_servico {
 		return livro_repository.save(livro);
 	}
 	
-	public List<Livro> getAll(){
-	 	return  livro_repository.findAll();
-	 }
-	 
+	public Livro getLivroByIsbn(String isbn) {
+		return livro_repository.findByIsbn(isbn);
+	}
+	
+	/*
+	 * public List<Livro> getAll(){ return livro_repository.findAll(); }
+	 */ 
 	
 	/*public DELETE*/
 
