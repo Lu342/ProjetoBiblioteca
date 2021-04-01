@@ -14,6 +14,8 @@ import javax.persistence.OneToOne;
 
 import org.modelmapper.ModelMapper;
 
+import com.br.educ.fafic.pi.dto.Aluno_DTO;
+import com.br.educ.fafic.pi.dto.Bibliotecario_DTO;
 import com.br.educ.fafic.pi.dto.Livro_DTO;
 import com.br.educ.fafic.pi.enums.Genero;
 
@@ -42,18 +44,65 @@ public class Bibliotecario implements Serializable {
 	@Column(unique = true)
 	private String CPF;
 
-	/* Tipo enum pra fazer */
 	private Integer genero;
 
-	/* colocar limitaÃ§Ã£o de digitos */
+	/* colocar limitação de digitos */
 	@Column(unique = true)
 	private int matricula;
 
-	@OneToOne(cascade = CascadeType.MERGE)
+	@OneToOne(cascade = CascadeType.ALL)
 	private Endereco endereco;
 
 	@Embedded
 	private Contato contato;
+
+	public static Bibliotecario create(Bibliotecario_DTO bibliotecariodto) {
+		return new ModelMapper().map(bibliotecariodto, Bibliotecario.class);
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getCPF() {
+		return CPF;
+	}
+
+	public void setCPF(String cPF) {
+		CPF = cPF;
+	}
+
+	public int getMatricula() {
+		return matricula;
+	}
+
+	public void setMatricula(int matricula) {
+		this.matricula = matricula;
+	}
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+
+	public Contato getContato() {
+		return contato;
+	}
+
+	public void setContato(Contato contato) {
+		this.contato = contato;
+	}
+
+	public UUID getUuid() {
+		return uuid;
+	}
 
 	public Genero getGenero() {
 		return Genero.fromCodigo(genero);
@@ -62,5 +111,5 @@ public class Bibliotecario implements Serializable {
 	public void setGenero(Genero genero) {
 		this.genero = genero.getCodigo();
 	}
-	
+
 }
