@@ -36,7 +36,7 @@ import lombok.ToString;
 @EqualsAndHashCode
 @ToString
 public class Aluno implements Serializable {
-
+//n
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID uuid;
