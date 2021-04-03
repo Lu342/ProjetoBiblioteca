@@ -1,7 +1,7 @@
 package com.br.educ.fafic.pi.Service;
 
 import java.util.List;
-
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,6 +24,16 @@ public class Bibliotecario_servico {
 
 	public List<Bibliotecario> getAll() {
 		return bibliotecario_repository.findAll();
+	}
+	
+	/*
+	 * public Livro getLivroByIsbn(String isbn) { return
+	 * livro_repository.findByIsbn(isbn); }
+	 */
+
+	public void deleteBibliotecario(UUID uuid) {
+		Bibliotecario bibliotecario = bibliotecario_repository.getOne(uuid);
+		bibliotecario_repository.delete(bibliotecario);
 	}
 
 }
