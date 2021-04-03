@@ -22,8 +22,6 @@ import com.br.educ.fafic.pi.dto.Aluno_DTO;
 import com.br.educ.fafic.pi.dto.Livro_DTO;
 import com.br.educ.fafic.pi.dto.Bibliotecario_DTO;
 
-// recebe a chamada do front-end
-
 @RestController
 @RequestMapping(value = "/bibliotecario")
 public class Bibliotecario_resource {
