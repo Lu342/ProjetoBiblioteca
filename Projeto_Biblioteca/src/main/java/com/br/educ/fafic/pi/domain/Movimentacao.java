@@ -15,12 +15,15 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 
+import com.br.educ.fafic.pi.dto.Aluno_DTO;
+import com.br.educ.fafic.pi.dto.Movimentacao_DTO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.modelmapper.ModelMapper;
 
 @Entity
 @NoArgsConstructor
@@ -44,6 +47,11 @@ public class Movimentacao {
 	@OneToMany
 	private List<Livro> livrosAlocados;
 	private Double multa;
+
+	public static Movimentacao create(Movimentacao_DTO movimentacaodto) {
+		return new ModelMapper().map(movimentacaodto, Movimentacao.class);
+	}
+
 	public Double getMulta() {
 		return multa;
 	}

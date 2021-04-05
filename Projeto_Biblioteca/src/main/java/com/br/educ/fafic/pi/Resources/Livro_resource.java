@@ -31,10 +31,21 @@ public class Livro_resource {
 		return ResponseEntity.ok().body(livro_service.saveLivro(Livro.create(livro)));
 	}
 
-	@GetMapping("/get/{isbn}")
+	@GetMapping("/get/isbn/{isbn}")
 	public ResponseEntity getLivroByIsbn(@PathVariable String isbn) {
 		return ResponseEntity.ok().body(livro_service.getLivroByIsbn(isbn));
 	}
+
+	@GetMapping("/get/area/{area}")
+	public ResponseEntity getLivroByArea(@PathVariable Integer area) {
+		return ResponseEntity.ok().body(livro_service.getLivroByArea(area));
+	}
+
+	@GetMapping("/get/nome/{nome}")
+	public ResponseEntity getLivroByNome(@PathVariable String nome) {
+		return ResponseEntity.ok().body(livro_service.getLivroByNome(nome));
+	}
+
 
 	@DeleteMapping("/delete/{uuid}")
 	public ResponseEntity deleteLivro(@PathVariable("uuid") UUID uuid) {

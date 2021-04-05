@@ -28,6 +28,14 @@ public class Livro_servico {
 		return livro_repository.findByIsbn(isbn);
 	}
 
+	public Livro getLivroByArea(Integer area) {
+		return livro_repository.findByArea(area);
+	}
+
+	public Livro getLivroByNome(String nome) {
+		return livro_repository.findByNome(nome);
+	}
+
 	public void deleteLivro(UUID uuid) {
 		Livro livro = livro_repository.getOne(uuid);
 		livro_repository.delete(livro);

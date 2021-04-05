@@ -10,4 +10,6 @@ import com.br.educ.fafic.pi.domain.Livro;
 @Repository
 public interface Livro_repository extends JpaRepository<Livro, UUID> {
 	public Livro findByIsbn(String isbn);
+	public Livro findByArea(Integer area);
+	public Livro findByNome(String nome);
 }
