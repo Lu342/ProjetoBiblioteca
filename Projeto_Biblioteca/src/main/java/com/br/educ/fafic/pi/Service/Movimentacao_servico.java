@@ -6,12 +6,12 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class Movimentacao_servico {
-    
-    private final Movimentacao_repository movimentacao_repository ;
 
-    @Autowired
-    public Movimentacao_servico(Movimentacao_repository movimentacao_repository) {
-        this.movimentacao_repository = movimentacao_repository;
-    }
+	private final Movimentacao_repository movimentacao_repository;
+
+	@Autowired
+	public Movimentacao_servico(Movimentacao_repository movimentacao_repository) {
+		this.movimentacao_repository = movimentacao_repository;
+	}
 
 }

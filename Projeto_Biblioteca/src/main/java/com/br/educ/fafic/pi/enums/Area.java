@@ -8,40 +8,37 @@ import java.util.Arrays;
 
 @JsonFormat(shape = JsonFormat.Shape.NUMBER)
 public enum Area {
-	
-	HUMANAS(1,"Humanas"),
-	EXATAS(2,"Exatas");
-	
-    private Integer codigo;
-    private String valor;
 
-    Area(Integer codigo, String valor) {
-        this.codigo = codigo;
-        this.valor = valor;
-    }
-    
-    @JsonValue
-    public Integer getCodigo() {
-        return codigo;
-    }
+	HUMANAS(1, "Humanas"), EXATAS(2, "Exatas");
 
-    public void setCodigo(Integer codigo) {
-        this.codigo = codigo;
-    }
+	private Integer codigo;
+	private String valor;
 
-    public String getValor() {
-        return valor;
-    }
+	Area(Integer codigo, String valor) {
+		this.codigo = codigo;
+		this.valor = valor;
+	}
 
-    public void setValor(String valor) {
-        this.valor = valor;
-    }
+	@JsonValue
+	public Integer getCodigo() {
+		return codigo;
+	}
 
-    @JsonCreator
-    public static Area fromCodigo(Integer codigo){
-        return Arrays.stream(Area.values())
-                .filter(e -> e.getCodigo().equals(codigo))
-                .findFirst().orElse(null);
+	public void setCodigo(Integer codigo) {
+		this.codigo = codigo;
+	}
 
-    }
+	public String getValor() {
+		return valor;
+	}
+
+	public void setValor(String valor) {
+		this.valor = valor;
+	}
+
+	@JsonCreator
+	public static Area fromCodigo(Integer codigo) {
+		return Arrays.stream(Area.values()).filter(e -> e.getCodigo().equals(codigo)).findFirst().orElse(null);
+
+	}
 }

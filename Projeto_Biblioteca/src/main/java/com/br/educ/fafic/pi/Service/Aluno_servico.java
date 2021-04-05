@@ -12,7 +12,7 @@ import com.br.educ.fafic.pi.domain.Aluno;
 @Service
 public class Aluno_servico {
 
-	private final Aluno_repository aluno_repository ;
+	private final Aluno_repository aluno_repository;
 
 	@Autowired
 	public Aluno_servico(Aluno_repository aluno_repository) {
@@ -26,23 +26,18 @@ public class Aluno_servico {
 	public List<Aluno> getAll() {
 		return aluno_repository.findAll();
 	}
-	
-	/*
-	 * public Livro getLivroByIsbn(String isbn) { return
-	 * livro_repository.findByIsbn(isbn); }
-	 */
+
 	public Aluno getAlunoByMatricula(String matricula) {
 		return aluno_repository.findByMatricula(matricula);
 	}
+
 	public Aluno getAlunoByNome(String nome) {
 		return aluno_repository.findByMatricula(nome);
 	}
-	
+
 	public void deleteAluno(UUID uuid) {
 		Aluno aluno = aluno_repository.getOne(uuid);
 		aluno_repository.delete(aluno);
 	}
-
-	/* public DELETE */
 
 }

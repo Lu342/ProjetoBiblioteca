@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.br.educ.fafic.pi.Service.Livro_servico;
 import com.br.educ.fafic.pi.domain.Livro;
 import com.br.educ.fafic.pi.dto.Livro_DTO;
+import com.br.educ.fafic.pi.enums.Area;
 
 // recebe a chamada do front-end
 
@@ -46,19 +47,10 @@ public class Livro_resource {
 		return ResponseEntity.ok().body(livro_service.getLivroByNome(nome));
 	}
 
-
 	@DeleteMapping("/delete/{uuid}")
 	public ResponseEntity deleteLivro(@PathVariable("uuid") UUID uuid) {
 		livro_service.deleteLivro(uuid);
 		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 	}
 
-	/*
-	 * @GetMapping("/all") public List<Livro> getAll() { return (List<Livro>)
-	 * ResponseEntity.ok().body(livro_service.getAll());
-	 * 
-	 * }
-	 */
-
-//	recurso para cada entidade
 }

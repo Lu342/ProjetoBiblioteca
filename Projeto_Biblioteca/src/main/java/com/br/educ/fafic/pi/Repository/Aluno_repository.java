@@ -9,7 +9,9 @@ import org.springframework.stereotype.Repository;
 import com.br.educ.fafic.pi.domain.Aluno;
 
 @Repository
-public interface Aluno_repository extends JpaRepository<Aluno, UUID>{
-    public Aluno findByMatricula(String matricula);
-    public Aluno findByNome(String nome);
+public interface Aluno_repository extends JpaRepository<Aluno, UUID> {
+	
+	public Aluno findByMatricula(String matricula);
+
+	public Aluno findByNome(String nome);
 }

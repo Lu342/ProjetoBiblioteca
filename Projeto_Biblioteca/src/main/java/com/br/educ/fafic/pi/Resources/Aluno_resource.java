@@ -42,22 +42,18 @@ public class Aluno_resource {
 		return ResponseEntity.ok().body(aluno_service.getAlunoByNome(matricula));
 	}
 
-
-
 	@DeleteMapping("/delete/{uuid}")
 	public ResponseEntity deleteLivro(@PathVariable("uuid") UUID uuid) {
 		aluno_service.deleteAluno(uuid);
 		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 	}
-	
+
 	/*
-	 * @GetMapping("/all") 
-	 * public List<Livro> getAll() { 
-	 * return (List<Livro>)
+	 * @GetMapping("/all") public List<Livro> getAll() { return (List<Livro>)
 	 * ResponseEntity.ok().body(livro_service.getAll());
 	 * 
-	 * }  
+	 * }
 	 */
-	
+
 //	recurso para cada entidade
 }

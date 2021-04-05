@@ -15,53 +15,53 @@ import java.util.List;
 @ToString
 public class Movimentacao_DTO {
 
-    private Usuarios usuario;
+	private Usuarios usuario;
 
-    private Calendar dataEmprestimo;
+	private Calendar dataEmprestimo;
 
-    private Calendar dataDevolucao;
+	private Calendar dataDevolucao;
 
-    private List<Livro> livrosAlocados;
+	private List<Livro> livrosAlocados;
 
-    private Double multa;
+	private Double multa;
 
-    public Usuarios getUsuario() {
-        return usuario;
-    }
+	public Usuarios getUsuario() {
+		return usuario;
+	}
 
-    public void setUsuario(Usuarios usuario) {
-        this.usuario = usuario;
-    }
+	public void setUsuario(Usuarios usuario) {
+		this.usuario = usuario;
+	}
 
-    public Calendar getDataEmprestimo() {
-        return dataEmprestimo;
-    }
+	public Calendar getDataEmprestimo() {
+		return dataEmprestimo;
+	}
 
-    public void setDataEmprestimo(Calendar dataEmprestimo) {
-        this.dataEmprestimo = dataEmprestimo;
-    }
+	public void setDataEmprestimo(Calendar dataEmprestimo) {
+		this.dataEmprestimo = dataEmprestimo;
+	}
 
-    public Calendar getDataDevolucao() {
-        return dataDevolucao;
-    }
+	public Calendar getDataDevolucao() {
+		return dataDevolucao;
+	}
 
-    public void setDataDevolucao(Calendar dataDevolucao) {
-        this.dataDevolucao = dataDevolucao;
-    }
+	public void setDataDevolucao(Calendar dataDevolucao) {
+		this.dataDevolucao = dataDevolucao;
+	}
 
-    public List<Livro> getLivrosAlocados() {
-        return livrosAlocados;
-    }
+	public List<Livro> getLivrosAlocados() {
+		return livrosAlocados;
+	}
 
-    public void setLivrosAlocados(List<Livro> livrosAlocados) {
-        this.livrosAlocados = livrosAlocados;
-    }
+	public void setLivrosAlocados(List<Livro> livrosAlocados) {
+		this.livrosAlocados = livrosAlocados;
+	}
 
-    public Double getMulta() {
-        return multa;
-    }
+	public Double getMulta() {
+		return multa;
+	}
 
-    public void setMulta(Double multa) {
-        this.multa = multa;
-    }
+	public void setMulta(Double multa) {
+		this.multa = multa;
+	}
 }

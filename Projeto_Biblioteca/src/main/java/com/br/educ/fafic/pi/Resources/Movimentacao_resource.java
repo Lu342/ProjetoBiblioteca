@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/movimentacao")
 public class Movimentacao_resource {
 
-    @Autowired
-    private Movimentacao_servico movimentacao_service;
+	@Autowired
+	private Movimentacao_servico movimentacao_service;
 
 }

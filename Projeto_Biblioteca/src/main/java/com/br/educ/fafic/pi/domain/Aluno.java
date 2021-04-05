@@ -36,7 +36,6 @@ import lombok.ToString;
 @EqualsAndHashCode
 @ToString
 public class Aluno implements Serializable {
-//n
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID uuid;
@@ -46,9 +45,9 @@ public class Aluno implements Serializable {
 	/* limitar o cpf a 11 digitos */
 	@Column(unique = true)
 	private String cpf;
-	
+
 	private Integer genero;
-	
+
 	@Column(unique = true)
 	private String matricula;
 
@@ -60,8 +59,6 @@ public class Aluno implements Serializable {
 
 	@ManyToOne(cascade = { CascadeType.ALL, CascadeType.PERSIST })
 	private CursoAluno curso;
-
-	
 
 	public static Aluno create(Aluno_DTO alunodto) {
 		return new ModelMapper().map(alunodto, Aluno.class);

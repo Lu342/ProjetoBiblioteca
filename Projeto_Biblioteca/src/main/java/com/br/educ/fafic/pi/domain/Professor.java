@@ -34,9 +34,6 @@ import lombok.ToString;
 @EqualsAndHashCode
 @ToString
 public class Professor implements Serializable {
-// nome(getsAndSets = true),cpf(getsAndSets = true), matricula(getsAndSets = true), 
-//	gênero(getsAndSets = true), endereço(getsAndSets = true), contato(getsAndSets = true), curso(getsAndSets = true)
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID uuid;
@@ -52,23 +49,15 @@ public class Professor implements Serializable {
 	@Column(unique = true)
 	private String matricula;
 
-	/*
-	 * @OneToOne(cascade = CascadeType.MERGE) private Endereco endereco;
-	 */
-	
 	@OneToOne(cascade = { CascadeType.ALL, CascadeType.PERSIST })
 	private Endereco endereco;
 
 	@Embedded
 	private Contato contato;
 
-	/*
-	 * @ManyToOne(cascade = CascadeType.MERGE) private CursoProfessor curso;
-	 */
-
 	@ManyToOne(cascade = { CascadeType.ALL, CascadeType.PERSIST })
 	private CursoProfessor curso;
-	
+
 	public static Professor create(Professor_DTO professordto) {
 		return new ModelMapper().map(professordto, Professor.class);
 	}

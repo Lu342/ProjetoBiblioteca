@@ -17,8 +17,6 @@ import com.br.educ.fafic.pi.dto.Professor_DTO;
 import com.br.educ.fafic.pi.dto.Livro_DTO;
 import com.br.educ.fafic.pi.dto.Professor_DTO;
 
-// recebe a chamada do front-end
-
 @RestController
 @RequestMapping(value = "/professor")
 public class Professor_resource {
@@ -31,12 +29,6 @@ public class Professor_resource {
 		return ResponseEntity.ok().body(professor_service.saveProfessor(Professor.create(professor)));
 	}
 
-	/*
-	 * @GetMapping("/get/{isbn}") public ResponseEntity getLivroByIsbn(@PathVariable
-	 * String isbn) { return
-	 * ResponseEntity.ok().body(livro_service.getLivroByIsbn(isbn)); }
-	 */
-
 	@GetMapping("/get/matricula/{matricula}")
 	public ResponseEntity getProfessorByMatricula(@PathVariable String matricula) {
 		return ResponseEntity.ok().body(professor_service.getProfessorByMatricula(matricula));
@@ -46,21 +38,11 @@ public class Professor_resource {
 	public ResponseEntity getProfessorByNome(@PathVariable String matricula) {
 		return ResponseEntity.ok().body(professor_service.getProfessorByNome(matricula));
 	}
-	
+
 	@DeleteMapping("/delete/{uuid}")
 	public ResponseEntity deleteLivro(@PathVariable("uuid") UUID uuid) {
 		professor_service.deleteProfessor(uuid);
 		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 	}
-	
-	/*
-	 * @GetMapping("/all") 
-	 * public List<Livro> getAll() { 
-	 * return (List<Livro>)
-	 * ResponseEntity.ok().body(livro_service.getAll());
-	 * 
-	 * }  
-	 */
-	
-//	recurso para cada entidade
+
 }

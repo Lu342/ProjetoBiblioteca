@@ -23,7 +23,7 @@ public class CursoAluno {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID uuid;
-	
+
 	private String nome;
 	private int periodo;
 
@@ -47,5 +47,4 @@ public class CursoAluno {
 		return uuid;
 	}
 
-//	de 1º a 8º Per
 }

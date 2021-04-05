@@ -76,6 +76,4 @@ public class Bibliotecario_DTO {
 		this.genero = genero;
 	}
 
-	
-
 }

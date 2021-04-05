@@ -41,10 +41,4 @@ public class Livro_servico {
 		livro_repository.delete(livro);
 	}
 
-	/*
-	 * public List<Livro> getAll(){ return livro_repository.findAll(); }
-	 */
-
-	/* public DELETE */
-
 }

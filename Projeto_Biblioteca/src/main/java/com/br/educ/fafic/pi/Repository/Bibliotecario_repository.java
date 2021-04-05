@@ -9,6 +9,6 @@ import com.br.educ.fafic.pi.domain.Aluno;
 import com.br.educ.fafic.pi.domain.Bibliotecario;
 
 @Repository
-public interface Bibliotecario_repository extends JpaRepository<Bibliotecario, UUID>{
+public interface Bibliotecario_repository extends JpaRepository<Bibliotecario, UUID> {
 
 }

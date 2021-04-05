@@ -24,23 +24,23 @@ import lombok.NoArgsConstructor;
 @Data
 @Builder
 @EqualsAndHashCode
-public class Biblioteca implements Serializable{
+public class Biblioteca implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO) 
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID uuid;
-	
+
 	private String nome;
-	
+
 	private String instituicao;
-	
+
 	@OneToOne
 	private Bibliotecario bibliotecario;
-	
+
 	@OneToMany
 	private List<Livro> livros;
-	
+
 	@OneToMany
 	private List<Usuarios> usuários;
-	
+
 }

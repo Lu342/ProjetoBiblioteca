@@ -26,7 +26,7 @@ public class CursoProfessor {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID uuid;
-	
+
 	private String nome;
 	private Integer area;
 

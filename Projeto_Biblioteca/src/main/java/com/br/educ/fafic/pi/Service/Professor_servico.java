@@ -11,7 +11,7 @@ import com.br.educ.fafic.pi.domain.Professor;
 @Service
 public class Professor_servico {
 
-	private final Professor_repository professor_repository ;
+	private final Professor_repository professor_repository;
 
 	@Autowired
 	public Professor_servico(Professor_repository professor_repository) {
@@ -25,24 +25,18 @@ public class Professor_servico {
 	public Professor getProfessorByMatricula(String matricula) {
 		return professor_repository.findByMatricula(matricula);
 	}
+
 	public Professor getProfessorByNome(String nome) {
 		return professor_repository.findByMatricula(nome);
 	}
-	
+
 	public List<Professor> getAll() {
 		return professor_repository.findAll();
 	}
 
-	/*
-	 * public Livro getLivroByIsbn(String isbn) { return
-	 * livro_repository.findByIsbn(isbn); }
-	 */
-	
 	public void deleteProfessor(UUID uuid) {
 		Professor professor = professor_repository.getOne(uuid);
 		professor_repository.delete(professor);
 	}
-	
-	/* public DELETE */
 
 }

@@ -25,11 +25,6 @@ public class Bibliotecario_servico {
 	public List<Bibliotecario> getAll() {
 		return bibliotecario_repository.findAll();
 	}
-	
-	/*
-	 * public Livro getLivroByIsbn(String isbn) { return
-	 * livro_repository.findByIsbn(isbn); }
-	 */
 
 	public void deleteBibliotecario(UUID uuid) {
 		Bibliotecario bibliotecario = bibliotecario_repository.getOne(uuid);

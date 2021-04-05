@@ -9,40 +9,37 @@ import java.util.Arrays;
 @JsonFormat(shape = JsonFormat.Shape.NUMBER)
 public enum Genero {
 
-	MASCULINO(1,"Masculino"),
-	FEMININO(2,"Feminino");
-	
-    private Integer codigo;
-    private String valor;
+	MASCULINO(1, "Masculino"), FEMININO(2, "Feminino");
 
-    Genero(Integer codigo, String valor) {
-        this.codigo = codigo;
-        this.valor = valor;
-    }
-    
-    @JsonValue
-    public Integer getCodigo() {
-        return codigo;
-    }
+	private Integer codigo;
+	private String valor;
 
-    public void setCodigo(Integer codigo) {
-        this.codigo = codigo;
-    }
+	Genero(Integer codigo, String valor) {
+		this.codigo = codigo;
+		this.valor = valor;
+	}
 
-    public String getValor() {
-        return valor;
-    }
+	@JsonValue
+	public Integer getCodigo() {
+		return codigo;
+	}
 
-    public void setValor(String valor) {
-        this.valor = valor;
-    }
+	public void setCodigo(Integer codigo) {
+		this.codigo = codigo;
+	}
 
-    @JsonCreator
-    public static Genero fromCodigo(Integer codigo){
-        return Arrays.stream(Genero.values())
-                .filter(e -> e.getCodigo().equals(codigo))
-                .findFirst().orElse(null);
+	public String getValor() {
+		return valor;
+	}
 
-    }
+	public void setValor(String valor) {
+		this.valor = valor;
+	}
+
+	@JsonCreator
+	public static Genero fromCodigo(Integer codigo) {
+		return Arrays.stream(Genero.values()).filter(e -> e.getCodigo().equals(codigo)).findFirst().orElse(null);
+
+	}
 
 }
