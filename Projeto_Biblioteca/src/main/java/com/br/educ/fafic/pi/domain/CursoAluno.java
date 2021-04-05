@@ -1,5 +1,6 @@
 package com.br.educ.fafic.pi.domain;
 
+import java.io.Serializable;
 import java.util.UUID;
 
 import javax.persistence.Entity;
@@ -18,7 +19,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @Data
 @ToString
-public class CursoAluno {
+public class CursoAluno implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
