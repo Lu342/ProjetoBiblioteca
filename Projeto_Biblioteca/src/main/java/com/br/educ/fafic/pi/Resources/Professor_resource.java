@@ -28,6 +28,11 @@ public class Professor_resource {
 	public ResponseEntity save(@RequestBody Professor_DTO professor) {
 		return ResponseEntity.ok().body(professor_service.saveProfessor(Professor.create(professor)));
 	}
+	
+	@PutMapping("/update")
+	public ResponseEntity updateProfessor(@RequestBody Professor professor) {
+		return ResponseEntity.ok().body(professor_service.updateProfessor(professor));
+	}
 
 	@GetMapping("/get/matricula/{matricula}")
 	public ResponseEntity getProfessorByMatricula(@PathVariable String matricula) {

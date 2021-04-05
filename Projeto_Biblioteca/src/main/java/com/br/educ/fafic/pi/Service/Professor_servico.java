@@ -21,6 +21,10 @@ public class Professor_servico {
 	public Professor saveProfessor(Professor professor) {
 		return professor_repository.save(professor);
 	}
+	
+	public Professor updateProfessor(Professor professor) {
+		return professor_repository.save(professor);
+	}
 
 	public Professor getProfessorByMatricula(String matricula) {
 		return professor_repository.findByMatricula(matricula);

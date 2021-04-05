@@ -23,6 +23,10 @@ public class Livro_servico {
 	public Livro saveLivro(Livro livro) {
 		return livro_repository.save(livro);
 	}
+	
+	public Livro updateLivro(Livro livro) {
+		return livro_repository.save(livro);
+	}
 
 	public Livro getLivroByIsbn(String isbn) {
 		return livro_repository.findByIsbn(isbn);

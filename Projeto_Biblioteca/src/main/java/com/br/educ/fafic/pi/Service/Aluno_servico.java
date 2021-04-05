@@ -22,6 +22,10 @@ public class Aluno_servico {
 	public Aluno saveAluno(Aluno aluno) {
 		return aluno_repository.save(aluno);
 	}
+	
+	public Aluno updateAluno(Aluno aluno) {
+		return aluno_repository.save(aluno);
+	}
 
 	public List<Aluno> getAll() {
 		return aluno_repository.findAll();

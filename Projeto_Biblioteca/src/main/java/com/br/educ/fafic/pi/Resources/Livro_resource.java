@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -51,6 +52,11 @@ public class Livro_resource {
 	public ResponseEntity deleteLivro(@PathVariable("uuid") UUID uuid) {
 		livro_service.deleteLivro(uuid);
 		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+	}
+	
+	@PutMapping("/update")
+	public ResponseEntity updateLivro(@RequestBody Livro livro) {
+		return ResponseEntity.ok().body(livro_service.updateLivro(livro));
 	}
 
 }

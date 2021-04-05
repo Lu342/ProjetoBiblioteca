@@ -21,6 +21,10 @@ public class Bibliotecario_servico {
 	public Bibliotecario savebibliotecario(Bibliotecario bibliotecario) {
 		return bibliotecario_repository.save(bibliotecario);
 	}
+	
+	public Bibliotecario updateBibliotecario(Bibliotecario bibliotecario) {
+		return bibliotecario_repository.save(bibliotecario);
+	}
 
 	public List<Bibliotecario> getAll() {
 		return bibliotecario_repository.findAll();

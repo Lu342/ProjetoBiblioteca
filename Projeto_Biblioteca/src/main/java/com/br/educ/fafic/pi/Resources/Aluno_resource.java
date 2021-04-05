@@ -26,11 +26,10 @@ public class Aluno_resource {
 		return ResponseEntity.ok().body(aluno_service.saveAluno(Aluno.create(aluno)));
 	}
 
-	/*
-	 * @GetMapping("/get/{isbn}") public ResponseEntity getLivroByIsbn(@PathVariable
-	 * String isbn) { return
-	 * ResponseEntity.ok().body(livro_service.getLivroByIsbn(isbn)); }
-	 */
+	@PutMapping("/update")
+	public ResponseEntity updateAluno(@RequestBody Aluno aluno) {
+		return ResponseEntity.ok().body(aluno_service.updateAluno(aluno));
+	}
 
 	@GetMapping("/get/matricula/{matricula}")
 	public ResponseEntity getAlunoByMatricula(@PathVariable String matricula) {
