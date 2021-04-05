@@ -7,13 +7,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Temporal;
+import javax.persistence.*;
 
 import com.br.educ.fafic.pi.dto.Aluno_DTO;
 import com.br.educ.fafic.pi.dto.Movimentacao_DTO;
@@ -38,10 +32,12 @@ public class Movimentacao {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID uuid;
 
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private Usuarios usuario;
 
+	@Temporal(TemporalType.DATE)
 	private Calendar dataEmprestimo;
+	@Temporal(TemporalType.DATE)
 	private Calendar dataDevolucao;
 
 	@OneToMany
