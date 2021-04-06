@@ -47,12 +47,4 @@ public class Aluno_resource {
 		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 	}
 
-	/*
-	 * @GetMapping("/all") public List<Livro> getAll() { return (List<Livro>)
-	 * ResponseEntity.ok().body(livro_service.getAll());
-	 * 
-	 * }
-	 */
-
-//	recurso para cada entidade
 }

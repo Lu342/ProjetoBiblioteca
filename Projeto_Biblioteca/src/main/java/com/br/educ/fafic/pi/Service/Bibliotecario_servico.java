@@ -11,6 +11,7 @@ import com.br.educ.fafic.pi.domain.Bibliotecario;
 
 @Service
 public class Bibliotecario_servico {
+	
 	private final Bibliotecario_repository bibliotecario_repository;
 
 	@Autowired
@@ -34,5 +35,6 @@ public class Bibliotecario_servico {
 		Bibliotecario bibliotecario = bibliotecario_repository.getOne(uuid);
 		bibliotecario_repository.delete(bibliotecario);
 	}
+	
 
 }

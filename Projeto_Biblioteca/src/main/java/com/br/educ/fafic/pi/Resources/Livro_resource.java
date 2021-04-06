@@ -19,8 +19,6 @@ import com.br.educ.fafic.pi.domain.Livro;
 import com.br.educ.fafic.pi.dto.Livro_DTO;
 import com.br.educ.fafic.pi.enums.Area;
 
-// recebe a chamada do front-end
-
 @RestController
 @RequestMapping(value = "/livro")
 public class Livro_resource {

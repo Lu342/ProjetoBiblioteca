@@ -30,30 +30,20 @@ public class Bibliotecario_resource {
 	@Autowired
 	private Bibliotecario_servico bibliotecario_service;
 
-	@PostMapping
+	@PostMapping("/Salvar_Bibliotecário")
 	public ResponseEntity save(@RequestBody Bibliotecario_DTO bibliotecario) {
 		return ResponseEntity.ok().body(bibliotecario_service.savebibliotecario(Bibliotecario.create(bibliotecario)));
 	}
 
-	@PutMapping("/update")
+	@PutMapping("/Atualizar_Bibliotecário")
 	public ResponseEntity updateBibliotecario(@RequestBody Bibliotecario bibliotecario) {
 		return ResponseEntity.ok().body(bibliotecario_service.updateBibliotecario(bibliotecario));
 	}
 	
-	@DeleteMapping("/delete/{uuid}")
+	@DeleteMapping("/Deletar_Bibliotecário/{uuid}")
 	public ResponseEntity deleteLivro(@PathVariable("uuid") UUID uuid) {
 		bibliotecario_service.deleteBibliotecario(uuid);
 		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 	}
 	
-	/*
-	 * @GetMapping("/all") 
-	 * public List<Livro> getAll() { 
-	 * return (List<Livro>)
-	 * ResponseEntity.ok().body(livro_service.getAll());
-	 * 
-	 * }  
-	 */
-	
-//	recurso para cada entidade
 }
