@@ -141,4 +141,12 @@ public class Bibliotecario_resource {
 		professor_service.deleteProfessor(uuid);
 		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 	}
+	
+	@Autowired
+	private Movimentacao_servico movimentacao_service;
+
+	@PostMapping("/Salvar_Movimentacao")
+	public ResponseEntity save(@RequestBody Movimentacao_DTO movimentacao) {
+		return ResponseEntity.ok().body(movimentacao_service.saveMovimentacao(Movimentacao.create(movimentacao)));
+	}
 }
