@@ -31,7 +31,7 @@ public class Professor_servico {
 	}
 
 	public Professor getProfessorByNome(String nome) {
-		return professor_repository.findByMatricula(nome);
+		return professor_repository.findByNome(nome);
 	}
 
 	public List<Professor> getAll() {

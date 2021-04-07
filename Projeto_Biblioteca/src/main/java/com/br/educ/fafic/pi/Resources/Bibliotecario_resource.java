@@ -2,6 +2,9 @@ package com.br.educ.fafic.pi.Resources;
 
 import java.util.UUID;
 
+import com.br.educ.fafic.pi.Service.*;
+import com.br.educ.fafic.pi.domain.*;
+import com.br.educ.fafic.pi.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,37 +17,24 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.br.educ.fafic.pi.Service.Aluno_servico;
-import com.br.educ.fafic.pi.Service.Bibliotecario_servico;
-import com.br.educ.fafic.pi.Service.Livro_servico;
-import com.br.educ.fafic.pi.Service.Professor_servico;
-import com.br.educ.fafic.pi.domain.Aluno;
-import com.br.educ.fafic.pi.domain.Bibliotecario;
-import com.br.educ.fafic.pi.domain.Livro;
-import com.br.educ.fafic.pi.domain.Professor;
-import com.br.educ.fafic.pi.dto.Aluno_DTO;
-import com.br.educ.fafic.pi.dto.Livro_DTO;
-import com.br.educ.fafic.pi.dto.Professor_DTO;
-import com.br.educ.fafic.pi.dto.Bibliotecario_DTO;
-
 @RestController
 @RequestMapping(value = "/bibliotecario")
 public class Bibliotecario_resource {
 
 	@Autowired
-	private Bibliotecario_servico bibliotecario_service;
+	private Bibliotecario_service bibliotecario_service;
 
-	@PostMapping("/Salvar_Bibliotecário")
+	@PostMapping("/Salvar_Bibliotecario")
 	public ResponseEntity save(@RequestBody Bibliotecario_DTO bibliotecario) {
 		return ResponseEntity.ok().body(bibliotecario_service.savebibliotecario(Bibliotecario.create(bibliotecario)));
 	}
 
-	@PutMapping("/Atualizar_Bibliotecário")
+	@PutMapping("/Atualizar_Bibliotecario")
 	public ResponseEntity updateBibliotecario(@RequestBody Bibliotecario bibliotecario) {
 		return ResponseEntity.ok().body(bibliotecario_service.updateBibliotecario(bibliotecario));
 	}
 
-	@DeleteMapping("/Deletar_Bibliotecário/{uuid}")
+	@DeleteMapping("/Deletar_Bibliotecario/{uuid}")
 	public ResponseEntity deleteBibliotecario(@PathVariable("uuid") UUID uuid) {
 		bibliotecario_service.deleteBibliotecario(uuid);
 		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
@@ -103,8 +93,8 @@ public class Bibliotecario_resource {
 	}
 
 	@GetMapping("/Buscar_Aluno/Nome/{nome}")
-	public ResponseEntity getAlunoByNome(@PathVariable String matricula) {
-		return ResponseEntity.ok().body(aluno_service.getAlunoByNome(matricula));
+	public ResponseEntity getAlunoByNome(@PathVariable String nome) {
+		return ResponseEntity.ok().body(aluno_service.getAlunoByNome(nome));
 	}
 
 	@DeleteMapping("/Deletar_Aluno/UUID/{uuid}")
@@ -126,14 +116,14 @@ public class Bibliotecario_resource {
 		return ResponseEntity.ok().body(professor_service.updateProfessor(professor));
 	}
 
-	@GetMapping("/get/matricula/{matricula}")
+	@GetMapping("/Buscar_Professor/matricula/{matricula}")
 	public ResponseEntity getProfessorByMatricula(@PathVariable String matricula) {
 		return ResponseEntity.ok().body(professor_service.getProfessorByMatricula(matricula));
 	}
 
 	@GetMapping("/Buscar_Professor/Nome/{nome}")
-	public ResponseEntity getProfessorByNome(@PathVariable String matricula) {
-		return ResponseEntity.ok().body(professor_service.getProfessorByNome(matricula));
+	public ResponseEntity getProfessorByNome(@PathVariable String nome) {
+		return ResponseEntity.ok().body(professor_service.getProfessorByNome(nome));
 	}
 
 	@DeleteMapping("/Deletar_Professor/UUID/{uuid}")

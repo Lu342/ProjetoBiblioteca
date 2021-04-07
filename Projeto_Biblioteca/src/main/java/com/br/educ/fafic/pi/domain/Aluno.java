@@ -57,7 +57,7 @@ public class Aluno implements Serializable {
 	@Embedded
 	private Contato contato;
 
-	@ManyToOne(cascade = { CascadeType.ALL, CascadeType.PERSIST })
+	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.PERSIST })
 	private CursoAluno curso;
 
 	public static Aluno create(Aluno_DTO alunodto) {
