@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -16,11 +17,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.br.educ.fafic.pi.Service.Aluno_servico;
 import com.br.educ.fafic.pi.Service.Bibliotecario_servico;
 import com.br.educ.fafic.pi.Service.Livro_servico;
+import com.br.educ.fafic.pi.Service.Professor_servico;
 import com.br.educ.fafic.pi.domain.Aluno;
 import com.br.educ.fafic.pi.domain.Bibliotecario;
 import com.br.educ.fafic.pi.domain.Livro;
+import com.br.educ.fafic.pi.domain.Professor;
 import com.br.educ.fafic.pi.dto.Aluno_DTO;
 import com.br.educ.fafic.pi.dto.Livro_DTO;
+import com.br.educ.fafic.pi.dto.Professor_DTO;
 import com.br.educ.fafic.pi.dto.Bibliotecario_DTO;
 
 @RestController
@@ -39,11 +43,102 @@ public class Bibliotecario_resource {
 	public ResponseEntity updateBibliotecario(@RequestBody Bibliotecario bibliotecario) {
 		return ResponseEntity.ok().body(bibliotecario_service.updateBibliotecario(bibliotecario));
 	}
-	
+
 	@DeleteMapping("/Deletar_Bibliotecário/{uuid}")
-	public ResponseEntity deleteLivro(@PathVariable("uuid") UUID uuid) {
+	public ResponseEntity deleteBibliotecario(@PathVariable("uuid") UUID uuid) {
 		bibliotecario_service.deleteBibliotecario(uuid);
 		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 	}
-	
+
+	@Autowired
+	private Livro_servico livro_service;
+
+	@PostMapping("/Salvar_Livro")
+	public ResponseEntity save(@RequestBody Livro_DTO livro) {
+		return ResponseEntity.ok().body(livro_service.saveLivro(Livro.create(livro)));
+	}
+
+	@GetMapping("/Buscar_Livro/ISBN/{isbn}")
+	public ResponseEntity getLivroByIsbn(@PathVariable String isbn) {
+		return ResponseEntity.ok().body(livro_service.getLivroByIsbn(isbn));
+	}
+
+	@GetMapping("/Buscar_Livro/Area/{area}")
+	public ResponseEntity getLivroByArea(@PathVariable Integer area) {
+		return ResponseEntity.ok().body(livro_service.getLivroByArea(area));
+	}
+
+	@GetMapping("/Buscar_Livro/Nome/{nome}")
+	public ResponseEntity getLivroByNome(@PathVariable String nome) {
+		return ResponseEntity.ok().body(livro_service.getLivroByNome(nome));
+	}
+
+	@DeleteMapping("/Deletar_Livro/UUID/{uuid}")
+	public ResponseEntity deleteLivro(@PathVariable("uuid") UUID uuid) {
+		livro_service.deleteLivro(uuid);
+		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+	}
+
+	@PutMapping("/Atualizar_Livro")
+	public ResponseEntity updateLivro(@RequestBody Livro livro) {
+		return ResponseEntity.ok().body(livro_service.updateLivro(livro));
+	}
+
+	@Autowired
+	private Aluno_servico aluno_service;
+
+	@PostMapping("/Salvar_Aluno")
+	public ResponseEntity save(@RequestBody Aluno_DTO aluno) {
+		return ResponseEntity.ok().body(aluno_service.saveAluno(Aluno.create(aluno)));
+	}
+
+	@PutMapping("/Atualizar_Aluno")
+	public ResponseEntity updateAluno(@RequestBody Aluno aluno) {
+		return ResponseEntity.ok().body(aluno_service.updateAluno(aluno));
+	}
+
+	@GetMapping("/Buscar_Aluno/Matricula/{matricula}")
+	public ResponseEntity getAlunoByMatricula(@PathVariable String matricula) {
+		return ResponseEntity.ok().body(aluno_service.getAlunoByMatricula(matricula));
+	}
+
+	@GetMapping("/Buscar_Aluno/Nome/{nome}")
+	public ResponseEntity getAlunoByNome(@PathVariable String matricula) {
+		return ResponseEntity.ok().body(aluno_service.getAlunoByNome(matricula));
+	}
+
+	@DeleteMapping("/Deletar_Aluno/UUID/{uuid}")
+	public ResponseEntity deleteAluno(@PathVariable("uuid") UUID uuid) {
+		aluno_service.deleteAluno(uuid);
+		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+	}
+
+	@Autowired
+	private Professor_servico professor_service;
+
+	@PostMapping("/Salvar_Professor")
+	public ResponseEntity save(@RequestBody Professor_DTO professor) {
+		return ResponseEntity.ok().body(professor_service.saveProfessor(Professor.create(professor)));
+	}
+
+	@PutMapping("/Atualizar_Professor")
+	public ResponseEntity updateProfessor(@RequestBody Professor professor) {
+		return ResponseEntity.ok().body(professor_service.updateProfessor(professor));
+	}
+
+	@GetMapping("/get/matricula/{matricula}")
+	public ResponseEntity getProfessorByMatricula(@PathVariable String matricula) {
+		return ResponseEntity.ok().body(professor_service.getProfessorByMatricula(matricula));
+	}
+
+	@GetMapping("/Buscar_Professor/Nome/{nome}")
+	public ResponseEntity getProfessorByNome(@PathVariable String matricula) {
+		return ResponseEntity.ok().body(professor_service.getProfessorByNome(matricula));
+	}
+
+	@DeleteMapping("/Deletar_Professor/UUID/{uuid}")
+	public ResponseEntity deleteProfessor(@PathVariable("uuid") UUID uuid) {
+		professor_service.deleteProfessor(uuid);
+		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+	}
 }
