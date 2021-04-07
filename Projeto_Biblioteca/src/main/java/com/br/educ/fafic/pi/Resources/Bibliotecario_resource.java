@@ -41,7 +41,7 @@ public class Bibliotecario_resource {
 	}
 
 	@Autowired
-	private Livro_servico livro_service;
+	private Bibliotecario_service livro_service;
 
 	@PostMapping("/Salvar_Livro")
 	public ResponseEntity save(@RequestBody Livro_DTO livro) {
@@ -75,7 +75,7 @@ public class Bibliotecario_resource {
 	}
 
 	@Autowired
-	private Aluno_servico aluno_service;
+	private Bibliotecario_service aluno_service;
 
 	@PostMapping("/Salvar_Aluno")
 	public ResponseEntity save(@RequestBody Aluno_DTO aluno) {
@@ -104,7 +104,7 @@ public class Bibliotecario_resource {
 	}
 
 	@Autowired
-	private Professor_servico professor_service;
+	private Bibliotecario_service professor_service;
 
 	@PostMapping("/Salvar_Professor")
 	public ResponseEntity save(@RequestBody Professor_DTO professor) {
@@ -133,7 +133,7 @@ public class Bibliotecario_resource {
 	}
 	
 	@Autowired
-	private Movimentacao_servico movimentacao_service;
+	private Bibliotecario_service movimentacao_service;
 
 	@PostMapping("/Salvar_Movimentacao")
 	public ResponseEntity save(@RequestBody Movimentacao_DTO movimentacao) {
