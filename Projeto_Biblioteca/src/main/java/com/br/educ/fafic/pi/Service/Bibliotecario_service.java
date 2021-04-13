@@ -71,7 +71,7 @@ public class Bibliotecario_service {
 	}
 
 	public Aluno getAlunoByNome(String nome) {
-		return aluno_repository.findByMatricula(nome);
+		return aluno_repository.findByNome(nome);
 	}
 
 	public void deleteAluno(UUID uuid) {
