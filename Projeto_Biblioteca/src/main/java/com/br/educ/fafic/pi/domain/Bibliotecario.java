@@ -46,7 +46,7 @@ public class Bibliotecario implements Serializable {
 
 	private Integer genero;
 
-	/* colocar limitação de digitos */
+	/* colocar limitaï¿½ï¿½o de digitos */
 	@Column(unique = true)
 	private int matricula;
 
@@ -55,6 +55,9 @@ public class Bibliotecario implements Serializable {
 
 	@Embedded
 	private Contato contato;
+
+	@Embedded
+	private Login login;
 
 	public static Bibliotecario create(Bibliotecario_DTO bibliotecariodto) {
 		return new ModelMapper().map(bibliotecariodto, Bibliotecario.class);
@@ -112,4 +115,11 @@ public class Bibliotecario implements Serializable {
 		this.genero = genero.getCodigo();
 	}
 
+	public Login getLogin() {
+		return login;
+	}
+
+	public void setLogin(Login login) {
+		this.login = login;
+	}
 }
