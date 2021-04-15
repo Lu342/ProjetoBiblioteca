@@ -8,6 +8,7 @@ import com.br.educ.fafic.pi.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,6 +26,7 @@ public class Bibliotecario_resource {
 	private Bibliotecario_service bibliotecario_service;
 
 	@PostMapping("/Salvar_Bibliotecario")
+	@PreAuthorize("hasAnyRole('BIBLIOTECARIO')")
 	public ResponseEntity save(@RequestBody Bibliotecario_DTO bibliotecario) {
 		return ResponseEntity.ok().body(bibliotecario_service.savebibliotecario(Bibliotecario.create(bibliotecario)));
 	}

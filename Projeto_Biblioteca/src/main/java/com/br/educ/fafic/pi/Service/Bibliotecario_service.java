@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.br.educ.fafic.pi.Repository.Aluno_repository;
@@ -19,24 +20,29 @@ import com.br.educ.fafic.pi.domain.Professor;
 
 @Service
 public class Bibliotecario_service {
-	
+
+
 	private final Bibliotecario_repository bibliotecario_repository;
 	private final Movimentacao_repository movimentacao_repository;
 	private final Professor_repository professor_repository;	
 	private final Aluno_repository aluno_repository;
 	private final Livro_repository livro_repository;
 
+	private final BCryptPasswordEncoder bCryptPasswordEncoder;
+
 	@Autowired
-	public Bibliotecario_service(Bibliotecario_repository bibliotecario_repository, Aluno_repository aluno_repository, Livro_repository livro_repository, Professor_repository professor_repository, Movimentacao_repository movimentacao_repository) {
+	public Bibliotecario_service(Bibliotecario_repository bibliotecario_repository, Aluno_repository aluno_repository, Livro_repository livro_repository, Professor_repository professor_repository, Movimentacao_repository movimentacao_repository, BCryptPasswordEncoder bCryptPasswordEncoder) {
 		this.bibliotecario_repository = bibliotecario_repository;
 		this.movimentacao_repository = movimentacao_repository;
 		this.professor_repository = professor_repository;
 		this.aluno_repository = aluno_repository;
 		this.livro_repository = livro_repository;
+		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
 	}
 
 
 	public Bibliotecario savebibliotecario(Bibliotecario bibliotecario) {
+		bibliotecario.getLogin().setSenha(bCryptPasswordEncoder.encode(bibliotecario.getLogin().getSenha()));
 		return bibliotecario_repository.save(bibliotecario);
 	}
 	
