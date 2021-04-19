@@ -3,6 +3,7 @@ package com.br.educ.fafic.pi.security;
 import io.jsonwebtoken.Jwts;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.AuthenticationEntryPoint;
@@ -32,8 +33,12 @@ public class JWTAuthorizationFIlter extends BasicAuthenticationFilter {
         String header = request.getHeader("Authorization");
         if(header != null && header.startsWith("Bearer ")){
             UsernamePasswordAuthenticationToken auth = getAuthentication(header.substring(7));
-        }
 
+            if(auth != null){
+                SecurityContextHolder.getContext().setAuthentication(auth);
+            }
+        }
+        chain.doFilter(request,response);
         
     }
 

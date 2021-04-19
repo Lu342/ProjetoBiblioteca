@@ -26,6 +26,6 @@ public class UserDetailServiceImpl implements UserDetailsService {
                     bibliotecario.get().getLogin().getSenha(),
                     bibliotecario.get().getLogin().getPerfis());
         }
-        return null;
+        throw new UsernameNotFoundException(usuario);
     }
 }
